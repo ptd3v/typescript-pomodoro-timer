@@ -10,5 +10,25 @@ function formatTime(minutes: number, seconds: number): string {
 //Timer Maths and output
 function startTimer(duration: number, message: string): void {
   console.log(`Starting ${message}`);
+  //Multiply the 'duration' by 60 to get the duration in seconds.
+  let remainingSeconds = duration * 60;
 
-//Consistent output
+  //setInterval that prints to the log every second.
+  setInterval(() => {
+    const minutes = Math.floor(remainingSeconds / 60);
+    const seconds = remainingSeconds % 60;
+
+    console.log(formatTime(minutes, seconds));
+
+    //Reduce 1 second every second.
+    remainingSeconds--;
+
+    //Print a completed message when finished.
+    if (remainingSeconds < 0) {
+      console.log(`${message} completed!`);
+      //Clear the timer data
+      clearInterval();
+    }
+  }, 1000);
+  
+}
