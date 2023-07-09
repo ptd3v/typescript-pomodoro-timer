@@ -7,6 +7,8 @@ function formatTime(minutes: number, seconds: number): string {
   return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 }
 
-//Timer Tracking
+//Timer Maths and output
+function startTimer(duration: number, message: string): void {
+  console.log(`Starting ${message}`);
 
-//End timer
+//Consistent output
