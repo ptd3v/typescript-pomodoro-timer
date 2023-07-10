@@ -34,5 +34,10 @@ function startTimer(duration: number, message: string): void {
     remainingSeconds--;
   }, 1000);
 }
-  
-}
+
+//Print Initial output to log
+console.log("Pomodoro Timer");
+
+//Initiate the 'Work Session' timer
+startTimer(WORK_DURATION, "Work Session");
+
