@@ -7,8 +7,6 @@ function formatTime(minutes: number, seconds: number): string {
   return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 }
 
-
-
 //Timer Maths and output
 function startTimer(duration: number, message: string): void {
   console.log(`Starting ${message}`);
@@ -21,6 +19,7 @@ function startTimer(duration: number, message: string): void {
     const minutes = Math.floor(remainingSeconds / 60);
     const seconds = remainingSeconds % 60;
 
+    //Prints the time remaining in a MM:SS format
     console.log(formatTime(minutes, seconds));
 
     //Print a completed message when finished.
