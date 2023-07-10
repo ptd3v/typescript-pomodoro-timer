@@ -7,10 +7,21 @@ function formatTime(minutes: number, seconds: number): string {
   return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 }
 
+//Print Initial output to log
+console.log("Pomodoro Timer");
+//Initiate the 'Work Session' timer
+startTimer(WORK_DURATION, "Work Session");
+
+//Timeout functionality, between the work and break sessions
+setTimeout(() => {
+  console.log("Take a short break!");
+  startTimer(BREAK_DURATION, "Break Session");
+  //Work duration in milliseconds
+}, WORK_DURATION * 60 * 1000);
+
 //Timer Maths and output
 function startTimer(duration: number, message: string): void {
   console.log(`Starting ${message}`);
-
   //Multiply the 'duration' by 60 to get the duration in seconds.
   let remainingSeconds = duration * 60;
 
@@ -24,20 +35,11 @@ function startTimer(duration: number, message: string): void {
 
     //Print a completed message when finished.
     if (remainingSeconds === 0) {
-      
       //Clear the timer data
       clearInterval(interval);
       console.log(`${message} completed!`);
     }
-
     //Reduce 1 second every second.
     remainingSeconds--;
   }, 1000);
 }
-
-//Print Initial output to log
-console.log("Pomodoro Timer");
-
-//Initiate the 'Work Session' timer
-startTimer(WORK_DURATION, "Work Session");
-
